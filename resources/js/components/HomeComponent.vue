@@ -1,8 +1,5 @@
-@extends('layouts.website')
-
-@section('content')
-
-<section>
+<template>
+ <section>
   <!-- Page Content -->
   <div class="container">
 
@@ -73,4 +70,12 @@
   </div>
   <!-- /.container -->
   </section>
-@endsection
+</template>
+
+<script>
+    export default {
+        mounted() {
+            console.log('Component mounted.')
+        }
+    }
+</script>

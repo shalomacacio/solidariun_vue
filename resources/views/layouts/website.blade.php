@@ -5,7 +5,9 @@
   <!--nav-->
   @include('partials.nav')
     <!--conteudo variavel -->
-    @yield('content')
+    <div id="app">
+            <app-component></app-component>
+        </div>
   <!--footer -->
   @include('partials.footer')
   <!--footer -->
