@@ -6,6 +6,7 @@ import User from '@/js/components/User';
 import Login from '@/js/components/Login';
 import Campanha from '@/js/components/Campanha';
 import Show from '@/js/components/Show';
+import UploadFile from '@/js/components/UploadFile';
 
 Vue.use(VueRouter);
 
@@ -31,6 +32,11 @@ const router = new VueRouter({
             path:'/campanha',
             name:'campanha',
             component: Campanha
+        },
+        {
+            path:'/upload-file',
+            name:'upload-file',
+            component: UploadFile
         },
         {
             path:'/campanha/:id',

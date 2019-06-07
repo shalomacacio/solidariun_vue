@@ -3,82 +3,34 @@
 namespace Solidariun\Http\Controllers;
 
 use Illuminate\Http\Request;
-use \Solidariuns\Model\Campanha;
+use \Solidariun\Model\Campanha;
+use DB;
 
 class CampanhaController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
+    public function __construct(Campanha $camapanha){
+        $this->campanha = $camapanha;
+    }
+
     public function list()
     {
-        $camapanhas = \Solidariun\Model\Campanha::all();
+        $camapanhas = DB::table('campanhas')->limit(6)->get();
         return response()->json($camapanhas);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+     public function store(Request $request)
     {
-        //
+        $input = $request->all();
+        $this->campanha->create($input);
+        return response()->json(['status'=> 'success', 'msg'=> 'criado com sucesso']);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
         //

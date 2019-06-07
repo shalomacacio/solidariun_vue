@@ -16,3 +16,4 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/{any}', 'StaticPageController@index')->where('any', '.*');
 Auth::routes();
 
+

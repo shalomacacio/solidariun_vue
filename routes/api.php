@@ -17,4 +17,11 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/campanhas', 'CampanhaController@list');
+
+Route::group(['prefix'=>'campanha'],function(){
+    Route::get('/list', 'CampanhaController@list');
+    Route::post('/store', 'CampanhaController@store');
+});
+
+Route::get('files/create', 'FileEntriesController@create');
+Route::post('files/upload-file', 'FileEntriesController@uploadFile');

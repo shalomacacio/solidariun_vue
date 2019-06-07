@@ -15,16 +15,17 @@ class CreateCampanhasTable extends Migration
     {
         Schema::create('campanhas', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('titulo')->notNull();
-            $table->text('descricao')->notNull();
-            $table->decimal('vlr_meta')->notNull();
-            $table->decimal('vlr_atingido');
-            $table->dateTime('dt_final')->notNull();
-            $table->string('img')->notNull();
-            $table->string('link_video');
-            $table->tinyInteger('flg_ativo')->default(1)->nullable();
 
-            $table->unsignedInteger('categoria_id');
+            $table->string('titulo')->nullable();
+            $table->text('descricao')->nullable();
+            $table->decimal('vlr_meta')->nullable();
+            $table->decimal('vlr_atingido')->nullable()->default(0);
+            $table->string('dt_final')->nullable();
+            $table->string('img')->nullable();
+            $table->string('link_video')->nullable();
+            $table->tinyInteger('flg_ativo')->default(1);
+
+            $table->string('categoria_id')->nullable();
 
             $table->timestamps();
 
